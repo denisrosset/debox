@@ -147,6 +147,18 @@ abstract class MapCheck[A: Arbitrary: ClassTag, B: Arbitrary: ClassTag: CMonoid]
     }
   }
 
+  property("keysIterator") {
+    forAll { (kvs: Map[A, B]) =>
+      val map = DMap.fromIterable(kvs)
+      val set = DSet.empty[A]
+      map.keysIterator.foreach { k =>
+        set(k) shouldBe false
+        set += k
+      }
+      set shouldBe map.keysSet
+    }
+  }
+
   property("mapToSet") {
     forAll { (kvs: Map[A, B], f: (A, B) => B) =>
       val m = DMap.fromIterable(kvs)
