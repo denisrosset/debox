@@ -1,9 +1,10 @@
 package debox
+package spkey
 
 import scala.annotation.tailrec
 import scala.reflect.ClassTag
 import scala.{specialized => spA}
-import scala.{specialized => spB}
+import debox.{dummysp => spB}
 import scala.{specialized => spC}
 
 import spire.algebra._
@@ -865,34 +866,6 @@ final class Map[@spA(Int, Long, AnyRef) A, @spB B] protected[debox] (ks: Array[A
         index += 1
         while (index < buckets.length && buckets(index) != 3) index += 1
         (key, value)
-      }
-    }
-  }
-
-  /**
-   * Return an iterator over this map's keys.
-   * 
-   * This method does not do any copying or locking. Thus, if the map
-   * is modified while the iterator is "live" the results will be
-   * undefined and probably bad. Also, since maps are not ordered,
-   * there is no guarantee elements will be returned in a particular
-   * order.
-   * 
-   * Use this.copy.iterator to get a "clean" iterator if needed.
-   * 
-   * Creating the iterator is an O(1) operation.
-   */
-  def keysIterator: Iterator[A] = {
-    var i = 0
-    while (i < buckets.length && buckets(i) != 3) i += 1
-    new Iterator[A] {
-      var index = i
-      def hasNext: Boolean = index < buckets.length
-      def next: A = {
-        val key = keys(index)
-        index += 1
-        while (index < buckets.length && buckets(index) != 3) index += 1
-        key
       }
     }
   }
