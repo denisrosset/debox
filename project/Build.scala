@@ -28,9 +28,9 @@ object MyBuild extends Build {
 
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
-      "org.spire-math" %% "spire" % "0.7.4",
-      "org.scalatest" %% "scalatest" % "2.1.3" % "test",
-      "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
+      "org.spire-math" %% "spire" % "0.8.3-SNAPSHOT",
+      "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.11.6" % "test"
     ),
 
     libraryDependencies := {
