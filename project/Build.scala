@@ -9,7 +9,7 @@ object MyBuild extends Build {
 
     scalaVersion := "2.10.4",
 
-    crossScalaVersions := Seq("2.10.4", "2.11.1"),
+    crossScalaVersions := Seq("2.10.4", "2.11.4"),
 
     conflictWarning in ThisBuild := ConflictWarning.disable,
 
@@ -28,7 +28,7 @@ object MyBuild extends Build {
 
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
-      "org.spire-math" %% "spire" % "0.8.3-SNAPSHOT",
+      "org.spire-math" %% "spire" % "0.9.1-SNAPSHOT",
       "org.scalatest" %% "scalatest" % "2.2.1" % "test",
       "org.scalacheck" %% "scalacheck" % "1.11.6" % "test"
     ),
