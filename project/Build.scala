@@ -24,7 +24,7 @@ object MyBuild extends Build {
 
     resolvers += Resolver.sonatypeRepo("releases"),
 
-    addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.0" cross CrossVersion.full),
+    addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full),
 
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
@@ -42,8 +42,8 @@ object MyBuild extends Build {
         // in Scala 2.10, quasiquotes are provided by macro-paradise
         case Some((2, 10)) =>
           libraryDependencies.value ++ Seq(
-            compilerPlugin("org.scalamacros" % "paradise" % "2.0.0" cross CrossVersion.full),
-            "org.scalamacros" %% "quasiquotes" % "2.0.0")
+            compilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full),
+            "org.scalamacros" %% "quasiquotes" % "2.0.1")
       }
     }
   )
